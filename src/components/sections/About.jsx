@@ -9,6 +9,7 @@ import { DiMongodb } from "react-icons/di";
 import { SiSpring } from "react-icons/si";
 import { FaNode } from "react-icons/fa";
 import { SiExpress } from "react-icons/si";
+import RevealOnScroll from '../RevealOnScroll'
 
 function About() {
   const frontendSkills = [
@@ -65,6 +66,7 @@ function About() {
       id="about"
       className="min-h-screen flex flex-col items-center justify-center relative"
     >
+     
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-center">
           About Me{" "}
@@ -170,6 +172,7 @@ function About() {
           </div>
         </div>
       </div>
+      
     </section>
   );
 }

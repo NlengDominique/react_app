@@ -1,17 +1,37 @@
-import React from "react";
+import { useState ,useEffect } from "react";
+
 
 function Home() {
+
+  const fullText = ' Hello I am LucasDev'
+  const [text, setText] = useState("")
+
+  useEffect(() => {
+    let index = 0
+    const interval = setInterval(() => {
+      setText(fullText.substring(0, index))
+      index++
+      if (index > fullText.length) {
+        clearInterval(interval)
+      }
+    },1000)
+  
+    return () => clearInterval(interval)
+  }, [])
+  
   return (
     <section
       id="home"
       className="min-h-screen flex flex-col items-center justify-center relative"
     >
+      
       <div className="text-center z-10 px-4">
         <h1
           className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r 
-            from-blue-500 to-cyan-400 text-transparent bg-clip-text leading-right"
+           animate-bounce from-blue-500 to-cyan-400 text-transparent bg-clip-text leading-right"
         >
-          Hello I am LucasDev
+          {text}
+         
         </h1>
 
         <p className="text-gray-400 text-lg mb-8 max-w-lg mx-auto">
@@ -37,6 +57,7 @@ function Home() {
          Contact Me
         </a>
       </div>
+     
     </section>
   );
 }

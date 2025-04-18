@@ -64,7 +64,7 @@ function About() {
   return (
     <section
       id="about"
-      className="min-h-screen flex flex-col items-center justify-center relative"
+      className="min-h-screen flex items-center justify-center "
     >
      
       <div className="max-w-5xl mx-auto px-4">

@@ -22,7 +22,7 @@ function Home() {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col items-center justify-center relative"
+      className="min-h-screen flex flex-col items-center justify-center "
     >
       
       <div className="text-center z-10 px-4">
@@ -34,7 +34,7 @@ function Home() {
          
         </h1>
 
-        <p className="text-gray-400 text-lg mb-8 max-w-lg mx-auto">
+        <p className=" md:text-gray-400 md:text-lg mb-8 md:max-w-lg md:mx-auto">
           I am fullstack developer who love crafting clean,scalable web
           applications. My goal is to build solutions that offer both
           exceptional performance and a delightful user experience.

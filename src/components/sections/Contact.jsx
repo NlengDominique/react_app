@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import emailjs from '@emailjs/browser'
+import { ToastContainer, toast } from 'react-toastify';
 
 function Contact() {
+
+  const [loading,setLoading] = useState(false)
+
+  const notify = () => toast.success("Message envoye avec succes");
 
   const [formDta, setFormData] = React.useState({
     name: "",
@@ -9,24 +14,30 @@ function Contact() {
     message: "",
   })
   const handleSubmit = (e) => {
+    setLoading(true)
     e.preventDefault()
-    emailjs.sendForm(import.meta.env.SERVICE_ID,import.meta.env.TEMPLATE_ID,e.target, import.meta.env.PUBLIC_KEY)
-    .then((result) => {
-      alert("Message sent successfully")
+    emailjs.sendForm(import.meta.env.VITE_SERVICE_ID,import.meta.env.VITE_TEMPLATE_ID,e.target, import.meta.env.VITE_PUBLIC_KEY)
+    .then(() => {
       setFormData({
         name: "",
         email: "",
         message: "",
       })
+      notify()
     }).catch((error) => {
-      alert("Message failed to send")
+      console.error(error)
+    }).finally(()=>{
+      setTimeout(()=>{
+        setLoading(false)
+      },1000)
+     
     })
   
   }
   return (
-    <section className='min-h-screen flex items-center justify-center py-20' >
+    <section className='min-h-screen flex items-center justify-center ' id='contact'>
 
-        <div className='px-4 w-150'>
+        <div className='w-150 px-4 '>
             <h2 className='text-3xl font-bold bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-center'>Get In Touch </h2>
             <form action="" className='space-y-6 mt-8' onSubmit={handleSubmit}>
                 <div className='relative'>
@@ -41,7 +52,10 @@ function Contact() {
                 <textarea type="text" name='message' id='message' required className='w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none
                  focus:border-blue-500 focus:bg-blue-500/5' rows={4} placeholder='Your message' value={formDta.message} onChange={(e) => setFormData({...formDta, message: e.target.value})}></textarea>
                 </div>
-                <button type='submit' className='w-full bg-blue-500/10 border border-blue-500/20 rounded px-6 py-3 font-medium text-white transition relative overflow-hidden hover:bg-blue-500'>Send Message</button>
+                <button type='submit' className='w-full bg-blue-500/10 border border-blue-500/20 rounded px-6 py-3 font-medium text-white transition relative overflow-hidden hover:bg-blue-500' disabled={loading}>{loading ? (
+                  <span className='flex items-center justify-center'>En cours.... </span>
+                ):"Send Message"}</button>
+                <ToastContainer />
             </form>
         </div>
 

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Scrollspy from "react-scrollspy";
 
 function NavBar({ menuOpen, setMenuOpen }) {
   useEffect(() => {
@@ -12,7 +13,6 @@ function NavBar({ menuOpen, setMenuOpen }) {
           <a href="#home" className="font-mono text-xl font-bold text-white">
             Lucas<span className="text-blue-500">Dev</span>
           </a>
-
           <div
             className="w-7 h-5 relative z-40 cursor-pointer md:hidden "
             onClick={() => setMenuOpen(!menuOpen)}
@@ -21,6 +21,7 @@ function NavBar({ menuOpen, setMenuOpen }) {
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
+          <Scrollspy items={ ['home', 'about', 'projects','contact'] } currentClassName="active" offset={-100} className="space-x-8 flex items-center">
             <a
               href="#home"
               className="text-gray-300 hover:text-white transition-colors"
@@ -49,6 +50,7 @@ function NavBar({ menuOpen, setMenuOpen }) {
               {" "}
               Contact{" "}
             </a>
+            </Scrollspy>
           </div>
         </div>
       </div>

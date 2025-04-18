@@ -16,7 +16,7 @@ function Contact() {
   const handleSubmit = (e) => {
     setLoading(true)
     e.preventDefault()
-    emailjs.sendForm(import.meta.env.VITE_SERVICE_ID,import.meta.env.VITE_TEMPLATE_ID,e.target, import.meta.env.VITE_PUBLIC_KEY)
+    emailjs.sendForm(import.meta.env.VITE_SERVICE_ID,import.meta.env.VITE_TEMPLATE_ID,e.target, { publicKey: import.meta.env.VITE_PUBLIC_KEY })
     .then(() => {
       setFormData({
         name: "",

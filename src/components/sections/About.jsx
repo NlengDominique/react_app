@@ -108,13 +108,74 @@ function About() {
                   </span>
                 ))}
               </div>
+              
             </div>
+            <div className="rounded-xl p-6 hover:-translate-y-1 transition-all md:col-span-2">
+  <h3 className="text-xl font-bold  mb-6">Autres Compétences</h3>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-gray-300">
+
+    {/* DevOps */}
+    <div className="space-y-2">
+      <h4 className="font-semibold text-blue-300">🛠 DevOps</h4>
+      {[
+        "Docker & Docker Compose",
+        "CI/CD avec Jenkins",
+        "Linux & Bash scripting",
+        "Serveurs Apache/Nginx",
+      ].map((item, idx) => (
+        <span
+          key={idx}
+          className="inline-block bg-blue-500/10 text-blue-400 px-3 py-1 rounded-full mr-2 mb-2 hover:bg-blue-500/20 transition-all"
+        >
+          {item}
+        </span>
+      ))}
+    </div>
+
+    {/* Gestion de Projet */}
+    <div className="space-y-2">
+      <h4 className="font-semibold text-blue-300">📋 Gestion de projet</h4>
+      {[
+        "Méthodes Agile / Scrum",
+        "Outils : Jira, Trello, Notion",
+        "Documentation avec Confluence",
+        "Communication technique",
+      ].map((item, idx) => (
+        <span
+          key={idx}
+          className="inline-block bg-blue-500/10 text-blue-400 px-3 py-1 rounded-full mr-2 mb-2 hover:bg-blue-500/20 transition-all"
+        >
+          {item}
+        </span>
+      ))}
+    </div>
+
+    {/* Outils & CMS */}
+    <div className="space-y-2">
+      <h4 className="font-semibold text-blue-300">🧰 Outils & CMS</h4>
+      {[
+        "IDE : VSCode, PhpStorm, WebStorm, IntelliJ IDEA",
+        "CMS : WordPress",
+        "Figma (UI Design)",
+        "Git & GitHub",
+      ].map((item, idx) => (
+        <span
+          key={idx}
+          className="inline-block bg-blue-500/10 text-blue-400 px-3 py-1 rounded-full mr-2 mb-2 hover:bg-blue-500/20 transition-all"
+        >
+          {item}
+        </span>
+      ))}
+    </div>
+  </div>
+</div>
+
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
           <div className="p-6 rounded-xl border-white/10  hover:-translate-y-1 transition-all">
             <h3 className="text-xl font-bold mb-4">🏫 Education</h3>
-            <ul className="list-disc list-inside text-gray-300 space-y-2">
+            <ul className="list-disc list-inside text-blue-300 space-y-2">
               <li>
                 <strong> B.S in Software Engineering (Ongoing) </strong> -IUT DE
                 DOUALA (2024-2025)
@@ -134,7 +195,7 @@ function About() {
             <h3 className="text-xl font-bold mb-4">👨‍💼 Work Experience</h3>
             <div className="space-y-4 text-gray-300">
               <div>
-                <h4 className="font-bold">
+                <h4 className="font-bold text-blue-400">
                   Full-Stack Developer at Davinci IT Solutions (Dec 2024 -
                   Present)
                 </h4>
@@ -146,7 +207,7 @@ function About() {
                 </p>
               </div>
               <div>
-                <h4 className="font-bold">
+                <h4 className="font-bold text-blue-400">
                   Mobile Developer at NGCORP (Jan 2024 - Apr 2024)
                 </h4>
                 <p>
@@ -157,7 +218,7 @@ function About() {
                 </p>
               </div>
               <div>
-                <h4 className="font-bold">
+                <h4 className="font-bold text-blue-400">
                   Web Developer at WIB (Jul 2023 - Sep 2023)
                 </h4>
                 <p>
